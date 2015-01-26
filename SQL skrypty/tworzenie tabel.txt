@@ -1,0 +1,95 @@
+CREATE TABLE reklamacje (
+    id_reklamacja INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    klient VARCHAR(150),
+    adres VARCHAR(300),
+    uwagi TEXT,
+    zrealizowano VARCHAR(10)
+)
+
+CREATE TABLE dostawy (
+  id_dostawa INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  data DATE,
+  dostawca VARCHAR(150),
+  czesc INT REFERENCES czesci(id_czesci),
+  ilosc INT
+);
+
+
+
+CREATE TABLE klienci (
+  	id_klient INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nazwa VARCHAR(100) NOT NULL,
+    miejscowosc VARCHAR(40),
+    telefon VARCHAR(20),
+    email VARCHAR(30),
+    wojewodztwo VARCHAR(40) CHECK (wojewodztwo IN 
+    								 ('dolnoœl¹skie', 'kujawsko-pomorskie', 'lubelskie',
+                                      'lubuskie', '³ódzkie', 'ma³opolskie', 'mazowieckie',
+                                      'opolskie', 'podkarpackie', 'podlaskie', 'pomorskie',
+                                      'œl¹skie', 'œwiêtokrzyskie', 'warmiñsko-mazurskie',
+                                      'wielkopolskie', 'zachodniopomorskie')),
+    ulica VARCHAR(80),
+    kod_pocztowy VARCHAR(6) CHECK (kod_pocztowy LIKE ('__-___'))
+);
+
+CREATE TABLE zamowienia (
+	id_zamowienie INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    klient INT NOT NULL REFERENCES klienci(id_klient),
+	maszyna INT NOT NULL REFERENCES maszyny(id_maszyna),
+    status VARCHAR(20),
+    data_zlozenia DATETIME,
+    uwagi TEXT
+)
+
+INSERT INTO Klienci VALUES (
+	DEFAULT,
+	'Klient1',
+	'Wysoka',
+    '660221345',
+    'email@mail.com',
+    'wielkopolskie',
+    'Sw. Walentego 19',
+    '89-320'
+)
+
+INSERT INTO zamowienia VALUES (
+	DEFAULT,
+    1,
+    2,
+    'Niezaakceptowane',
+    '2013-12-11 20:43:11',
+    'Ma byc szybko, ladnie i dokladnie'
+);
+SELECT klienci.nazwa AS 'nazwaKlienta', maszyny.nazwa AS 'nazwaMaszyny', zamowienia.status, zamowienia.data_zlozenia, zamowienia.uwagi
+FROM (klienci INNER JOIN zamowienia ON klienci.id_klient = zamowienia.klient) INNER JOIN maszyny ON maszyny.id_maszyna = zamowienia.maszyna
+
+CREATE TABLE zestawy_czesci (
+	id_zestaw_czesci INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nr_zestawu INT NOT NULL,
+    maszyna INT REFERENCES maszyny(id_maszyna),
+    czesc INT REFERENCES czesci(id_czesc),
+    ilosc_potrzebnych_cz INT
+)
+
+INSERT INTO klienci VALUES (
+    DEFAULT,
+    'Firma SA',
+    'Pi³a',
+    '+48518469782',
+    'szef@firma.com',
+    'wielkopolskie',
+    'Ch³odna 15/2',
+    '64-768'
+)
+
+SELECT zestawy_czesci.nr_zestawu AS "Numer zestawu", maszyny.nazwa AS "Maszyna", czesci.nazwa AS "Czêœæ", zestawy_czesci.ilosc_potrzebnych_cz AS "Potrzebne cz."
+FROM zestawy_czesci, maszyny, czesci
+WHERE zestawy_czesci.maszyna = maszyny.id_maszyna && zestawy_czesci.czesc = czesci.id_czesci
+
+CREATE TABLE dostawy (
+	id_dostawa INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	data DATETIME,
+    dostawca VARCHAR(64),
+    czesc INT REFERENCES czesci(id_czesci),
+    ilosc INT
+)

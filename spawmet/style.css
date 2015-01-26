@@ -1,0 +1,262 @@
+body {
+	background-image: url('background.gif');
+	font-family: 'Arial';
+}
+
+#logging_window {
+	background-color: #fa4444;
+	width: 300px;
+	height: 130px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.window {
+	/*background-color: white;/*#fa4444;*/
+	width: 400px; /*300px*/
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px;
+}
+
+.window_text {
+	color: white; 
+	text-align: center; 
+	padding-top: 30px;
+}
+
+.form_login {
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	left: 40px;
+	top: 25px;
+}
+
+.communicate {
+	background-color: #fa4444;
+	width: 300px;
+	height: 130px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.communicate_text {
+	position: relative;
+	top: 40px;
+	width: 280px;
+	height: 45px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	color: white;
+}
+
+.link {
+	text-decoration: none;
+	background-color: red;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+
+a:hover {
+	color: red;
+	background-color: black;
+}
+
+a.table_a {
+	color: #000;
+}
+
+a.table_a:hover {
+	color: #fff;
+	background-color: #000;
+}
+
+.options_button {
+	width: 20px;
+	height: 20px;
+	background-color: #2d2d2d;
+	margin-left: auto;
+	margin-right: auto;
+	background-image: url(baza/images/options_button.png);
+}
+
+.options_button:hover {
+	background-color: #000;
+	background-image: url(baza/images/options_button_hover.png);
+}
+
+.options_list {
+	width: 150px;
+	/*height: 100px;*/
+	background-color: #2d2d2d;
+	position: relative;
+	/*top: 20px;*/
+	left: 25px;
+	visibility: hidden;
+}
+
+.options_list div {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.options_list div:hover {
+	background-color: #000;
+}
+
+.baza_bg {
+	background-color: #fa4444;
+	width: 860px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-bottom: 40px;
+	/*padding-bottom: 10px;*/
+}
+
+h1 {
+	color: white;
+	font-size: 20pt;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 40px;
+	/*padding-bottom: 10px;*/
+}
+
+h2 {
+	color: white;
+	font-size: 20pt;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 40px;
+	text-align: center;
+	/*padding-bottom: 10px;*/
+}
+
+p {
+	color: white;
+	padding-left: 35px;
+	padding-right: 35px;
+}
+
+#menu {
+	width: 720px;
+	height: 42px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	text-align: center;
+	/*background-color: white;*/
+}
+
+.menu_button {
+	background-color: #2d2d2d;
+	padding: 10px;
+	position: relative;
+	top: 10px;
+}
+
+.menu_button:hover {
+	background-color: black;
+}
+
+table {
+	background-color: white;
+	margin-left: auto;
+	margin-right: auto;
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+}
+
+/*tr {
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+}*/
+
+tr {
+	text-align: center;
+}
+
+tr:hover {
+	background-color: #dfdfdf;
+}
+
+td {
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.table_header {
+	/*background-color: #989797;*/
+	background-color: #000;
+	color: white;
+	text-align: center;
+}
+
+.table_header:hover {
+	background-color: #000;
+}
+
+#back_button {
+	width: 60px;
+	height: 60px;
+	background-color: #2d2d2d;
+	background-image: url(baza/images/back_arrow.png);
+	/*position: relative;
+	left: -110px;
+	float: left;*/
+	position: fixed;
+	top: 15vh;
+}
+
+#back_button:hover {
+	background-color: #000;
+	background-image: url(baza/images/back_arrow_hover.png);
+}
+
+#inputs {
+	float: right;
+	width: 200px;
+}
+
+#inputs_names {
+	width: 200px;
+	color: white;
+	text-align: right;
+}
+
+#inputs_text {
+	margin-right: 10px;
+}
+
+.inputs_name {
+	margin-top: 2px;
+}
+
+/*#add_box_btn:hover {
+	background-color: red;
+	color: black;
+}*/
+
+.trace_btns {
+	background-color: #2d2d2d;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+}
+
+.trace_btns:hover {
+	background-color: black;
+}
